@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Phaqui: issue-6: Flash message timeouts -->
+  <!-- Note: I just added this here, because I don't know where else to add it,
+               feel free to move it to where you want it, and change it up or whatnot. -->
+  <!-- Also this just sets the css property 'display' to 'none'. No animations or anything
+         fancy. -->
+  <script type="text/javascript">
+    window.addEventListener("DOMContentLoaded", function (ev) {
+      let flash_message = document.querySelector('.alert');
+      if (!flash_message) return;
+
+      window.setTimeout(function () {
+        flash_message.style.display = 'none';
+      }, 3000);
+    });
+  </script>
+  {% block head %}
+  <!-- Custom fonts for this template-->
+  <link href="{{ url_for('static', filename='vendor/fontawesome-free/css/all.min.css')}}" rel="stylesheet"
+    type="text/css">
+
+  <!-- Page level plugin CSS-->
+  <link href="{{ url_for('static', filename='vendor/datatables/dataTables.bootstrap4.css')}}" rel="stylesheet">
+
+  <!-- Custom styles for this template-->
+  <link href="{{ url_for('static', filename='css/sb-admin.css') }}" rel="stylesheet">
+
+  <link href="{{ url_for('static', filename='style.css') }}" rel="stylesheet">
+
+  <title>{% block title %}{% endblock %} - My Webpage</title>
+  {% endblock %}
+</head>
+
+<body id="page-top">
+
+
+  <!-- Scroll to Top Button-->
+  <a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+  </a>
+
+  <!-- Logout Modal-->
+  <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+          <a class="btn btn-primary" href="/logout">Logout</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  
+</body>
+
+</html>
